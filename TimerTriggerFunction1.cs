@@ -33,9 +33,9 @@ namespace MaxHRO.Function1
                     testItem = new TestItem
                     {
                         FrontName = "Werner",
-                        LastName = "Brösel",
+                        LastName = "Brösel", 
                         Birthday = new DateTime(1981, 12, 12),
-                        CountShoes = Convert.ToInt16((new Random().Next() * 100))
+                        CountShoes = new Random().Next(1,100)
                     }
                 };
             }
