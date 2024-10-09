@@ -25,15 +25,25 @@ namespace MaxHRO.Function1
                 _logger.LogInformation($"Next timer schedule at: {myTimer.ScheduleStatus.Next}");
             }
 
-            // Connect to Azure SQL Database via Binding
-            return new OutputType() {
-                testItem = new TestItem {
-                    FrontName = "Werner",
-                    LastName = "Brösel",
-                    Birthday = new DateTime(1981, 12, 12),
-                    CountShoes  = Convert.ToInt16((new Random().Next() * 100))
-                }
-            };
+            try
+            {
+                // Connect to Azure SQL Database via Binding
+                return new OutputType()
+                {
+                    testItem = new TestItem
+                    {
+                        FrontName = "Werner",
+                        LastName = "Brösel",
+                        Birthday = new DateTime(1981, 12, 12),
+                        CountShoes = Convert.ToInt16((new Random().Next() * 100))
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error");
+                return new OutputType();
+            }
         }
     }
 
