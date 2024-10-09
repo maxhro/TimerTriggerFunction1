@@ -22,6 +22,9 @@ namespace MaxHRO.Function1
             {
                 _logger.LogInformation($"Next timer schedule at: {myTimer.ScheduleStatus.Next}");
             }
+
+            // Connect to Azure SQL Database via Binding
+
         }
     }
 }
